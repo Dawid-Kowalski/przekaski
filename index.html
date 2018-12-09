@@ -23,7 +23,12 @@
 		</script>
 
 		<script id="recipt-template" type="x-tmpl-mustache">
-			<p id="{{id}}" hidden>{{title}}</p>
+			<div id="{{id}}" hidden>
+				<p>{{title}}</p>
+				<p>składniki</p>
+				<ul>{{#components}}<li>{{.}}</li>{{/components}}</ul>
+				<p>{{discription}}</p>
+			</div>
 		</script>
 
 	<script type="text/javascript" src="vendor/flickity.pkgd.min.js"></script>
