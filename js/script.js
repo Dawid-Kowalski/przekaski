@@ -9,19 +9,24 @@
 	let mealData = 
 					[
 						{	
-							title: 'kurczaki w panierce'
+							title: 'kurczaki w panierce',
+							image: 'images/kurczakimin.jpg'
 						},
 						{	
-							title: 'quesarillos'
+							title: 'quesadilla',
+							image: 'images/quesadillamin.jpg'
 						},
 						{	
-							title: 'zapiekane pieczarki'
+							title: 'zapiekane pieczarki',
+							image: 'images/pieczarkimin.jpg'
 						},
 						{	
-							title: 'mufinki - pizzerinki'
+							title: 'mufinki - pizzerinki',
+							image: 'images/pizzerinkimin.jpg'
 						},
 						{	
-							title: 'zawijańce z tortilli'
+							title: 'zawijańce z tortilli',
+							image: 'images/zawijancemin.jpg'
 						}						
 					];
 		
