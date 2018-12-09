@@ -10,7 +10,7 @@
 
 		<div class="carousel" id="carousel">
 		</div>
-		<div id="recipt">
+		<div class="recipt" id="recipt">
 		</div>
 
 
@@ -24,8 +24,8 @@
 
 		<script id="recipt-template" type="x-tmpl-mustache">
 			<div id="{{id}}" hidden>
-				<p>{{title}}</p>
-				<p>składniki</p>
+				<h2>{{title}}</h2>
+				<h3>składniki</h3>
 				<ul>{{#components}}<li>{{.}}</li>{{/components}}</ul>
 				<p>{{discription}}</p>
 			</div>
