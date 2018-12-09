@@ -2,32 +2,32 @@
 (function(){ 
 
 	let template = document.getElementById('template').innerHTML;
-	let results = document.getElementById('results');
+	let carousel = document.getElementById('carousel');
 
 	Mustache.parse(template);
 
-	let dataHello = 
+	let mealData = 
 					[
 						{	
-							prefix: 'Mr',
-							firstname: 'John',
-							lastname: 'Smith'
+							title: 'kurczaki w panierce'
 						},
 						{	
-							prefix: 'Mrs',
-							firstname: 'Maria',
-							lastname: 'Jones'
+							title: 'quesarillos'
 						},
 						{	
-							prefix: 'Mr',
-							firstname: 'Tom',
-							lastname: 'Newman'
-						}
+							title: 'zapiekane pieczarki'
+						},
+						{	
+							title: 'mufinki - pizzerinki'
+						},
+						{	
+							title: 'zawijańce z tortilli'
+						}						
 					];
 		
-	for(let i=0; i<dataHello.length; i++) {
-		let generatedHello = Mustache.render(template, dataHello[i]);
-		results.insertAdjacentHTML('beforeend', generatedHello);
+	for(let i=0; i<mealData.length; i++) {
+		let generatedMeal = Mustache.render(template, mealData[i]);
+		carousel.insertAdjacentHTML('beforeend', generatedMeal);
 	}
 	
 })();
