@@ -1,23 +1,18 @@
+let mealTemplate = document.getElementById('meal-template').innerHTML;
+let reciptTemplate = document.getElementById('recipt-template').innerHTML;
+let carousel = document.getElementById('carousel');
+let reciptList = document.getElementById('recipt-list');
+
+let recipes = [];
+
+Mustache.parse(mealTemplate);
+Mustache.parse(reciptTemplate);
+
 'use strict';
 (function(){ 
 
-	let mealTemplate = document.getElementById('meal-template').innerHTML;
-	let reciptTemplate = document.getElementById('recipt-template').innerHTML;
-	let carousel = document.getElementById('carousel');
-	let recipt = document.getElementById('recipt');
-
-	Mustache.parse(mealTemplate);
-	Mustache.parse(reciptTemplate);
-		
-	for(let i=0; i<mealData.length; i++) {
-		let generatedMeal = Mustache.render(mealTemplate, mealData[i]);
-		carousel.insertAdjacentHTML('beforeend', generatedMeal);
-	}
-
-	for(let i=0; i<reciptData.length; i++) {
-		let generatedRecipt = Mustache.render(reciptTemplate, reciptData[i]);
-		recipt.insertAdjacentHTML('beforeend', generatedRecipt);
-	}
+	addDataToCarousel();
+	addReciptsToReciptList();
 
 })();
 
@@ -27,18 +22,38 @@ const flkty = new Flickity(carousel, {
   pageDots: false
 });
 
-let recipes = [];
-
-for(let i=0; i<5; i++){
-	let recipe = document.getElementById(i);
-	recipes.push(recipe);
-}
+addReciptToTable();
 
 recipes[0].hidden = false;
 
 flkty.on('change', function(index){
-	for(let i=0; i<recipes.length; i++){
-			recipes[i].hidden = true;
-		}
+	hiddeAllRecipt();
 	recipes[index].hidden = false;
 });
+
+function addDataToCarousel() {
+		for(let i=0; i<mealData.length; i++) {
+		let generatedMeal = Mustache.render(mealTemplate, mealData[i]);
+		carousel.insertAdjacentHTML('beforeend', generatedMeal);
+	}
+}
+
+function addReciptsToReciptList() {
+	for(let i=0; i<reciptData.length; i++) {
+		let generatedRecipt = Mustache.render(reciptTemplate, reciptData[i]);
+		reciptList.insertAdjacentHTML('beforeend', generatedRecipt);
+	}
+}
+
+function hiddeAllRecipt() {
+	for(let i=0; i<recipes.length; i++){
+		recipes[i].hidden = true;
+	}
+}
+
+function addReciptToTable() {
+	for(let i=0; i<5; i++){
+		let recipe = document.getElementById(i);
+		recipes.push(recipe);
+	}
+}
